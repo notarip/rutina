@@ -1,0 +1,102 @@
+- Empezar a hacer cobertura con los test
+- Cargar las entidades en el boostrap
+
+- Validaciones contra los rol para la asignacion a un campoo
+- Ver si vale la pena asociar coach --> usuario
+- Crear entidades: 
+- pasaar las historias de usuario
+- pasar el diagrama de entidades
+- Escribor las hitorias en formato BDD (behavior driven design)(*)
+
+
+---------------------------------------------
+entidades:
+
+usuario: usuarios genericos del sistema
+rol: rol que puede tener un usuario
+campo: campoos de entrenamiento 
+entrenamiento: entrenamiento, agrupa varios done, puede relacionarce con una rutina o se libre
+rutina: rutina que tiene un usuario esta compuesta de varios ejercicios
+ejercicio: todos los ejercicios que se pueden planificar en una rutina. 
+evetos: eventos genericos, en principio son comentarios que se pueden asiociar a cualquier entidad
+
+sintesis:
+Es un sitio muy orientado a movile que permite a los usuarios y entrenadores gestionar los entrenamientos.
+
+
+----------------------------------------------
+
+historias:
+
+
+- como usuario: darme de alta en el sistema, con nombre, email y password
+- como usuario: asociar mi cuenta a un campoo 
+- como campo: recibir la informacion de todos los usuarios que me tienen asociados
+- como campo: poder cargar las rutinas de mis usuarios
+- como usuario: poder cargar mis entrenamientos
+- como usuario: poder elegir si entreno libre o voy a hacer una rutina
+- como usuario: quiero recibir una notificacion si mi coach cambia algo de mi rutina !!
+- como campo: poder cambiar la rutina y comentar los entrenamientos !!
+- como usuario: incluir el los comments a otro usuario(tipo twitter)
+
+***
+Historia: Alta de Usuario
+Como: Usuario 
+Para: Poder utilizar el sistema 
+Quiero: Darme de alta en el sistema con nombre y email
+
+***
+Historia: Asociarme a un campoo de Entrenamiento
+Como: Usuario 
+Para: Poder interactuar con un campoo de entrenamiento determinado 
+Quiero: Asociarme a uno o varios campoos de entrenamiento
+
+***
+Historia: Ver usuarios asociados
+Como: campoo
+Para: Poder interactuar con un los usuaios que pertenecen a mi campoo de entrenamiento
+Quiero: Ver un listado de los usuarios que estan asociados a mi campoo de entrenamiento
+
+***
+Historia: Cargar rutinas de mis usuarios
+Como: campoo
+Para: Administar las rutinas de los usuarios que pertencen a mi campoo
+Quiero: Poder cargar las rutinas correspondientes a un usuario que este asociado a mi campoo de entrenamiento
+
+***
+Historia: Cargar mis entrenamientos
+Como: Usuario
+Para: Llevar un registro de los entrenamientos que hice
+Quiero: Poder cargar los entrenamientos que hice
+
+***
+Historia: Cargar mis entrenamientos II
+Como: Usuario
+Para: Llevar un registro de los entrenamientos que hice
+Quiero: Poder cargar los entrenamientos asociados a una rutina o como entrenamiento libre
+
+***
+Historia: Recibir notificaciones
+Como: Usuario
+Para: Saber si mi coach reviso mi entrenamiento
+Quiero: Recibir notificaciones si mi entrenador cambia algo de mi rutina
+
+
+***
+Historia: Cambiar la rutinas
+Como: campoo
+Para: Adecuar las rutinas a los usuarios dinamicamente
+Quiero: Poder cambiar las rutinas de los usuarios
+
+***
+Historia: Comentar la rutinas/entrenamientos
+Como: campoo
+Para: Hacer un seguimiento personalizado de los usuarios
+Quiero: Poder comentar las rutinas y los entrenamientos de los usuarios
+
+***
+Historia: Eligir privacidad
+Como: Usuario
+Para: Dar o no una visión global de mi actividad fisica a los distintos campoos/entrenadores
+Quiero: Poder cambiar la visibilidad de las rutinas y entrenamientos 
+
