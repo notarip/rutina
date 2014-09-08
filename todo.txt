@@ -1,12 +1,9 @@
+
+
 - Empezar a hacer cobertura con los test
 - Cargar las entidades en el boostrap
-
 - Validaciones contra los rol para la asignacion a un campoo
-- Ver si vale la pena asociar coach --> usuario
-- Crear entidades: 
-- pasaar las historias de usuario
 - pasar el diagrama de entidades
-- Escribor las hitorias en formato BDD (behavior driven design)(*)
 
 
 ---------------------------------------------

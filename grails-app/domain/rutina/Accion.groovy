@@ -23,7 +23,9 @@ class Accion {
 
     @Override
 	public String toString() {
-		return this.ejercicio;
+		return "$ejercicio " + series.toListString(10)
 	}
+
+	
 
 }

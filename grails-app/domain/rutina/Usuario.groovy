@@ -14,9 +14,9 @@ class Usuario {
 
 	
 	static constraints = {
-		nombre(nullable: false, blank: false)
+		nombre nullable: false, blank: false
 		email email:true
-		password size: 5..15, blank: false
+		password size: 5..15, blank: false, password:true
 	}
 	
 	@Override

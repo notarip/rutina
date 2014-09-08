@@ -40,7 +40,7 @@ class BootStrap {
 		mega2.addToAdministradores(pepe)
 		mega2.addToEntrenadores(jose)
 		mega2.save()
-	/******************************************************/
+	/************************************************************/
 
 		Ejercicio ej1 = new Ejercicio (grupo:"biceps",nombre:"Zottman Preacher Curl", descripcion:"http://www.mipielsana.com/zottman-preacher-curl/", peso:true,repeticiones:true, tiempo:false).save()
 		Ejercicio ej2 = new Ejercicio (grupo:"biceps",nombre:"Zottman Curl", descripcion:"http://www.mipielsana.com/zottman-curl/", peso:true,repeticiones:true, tiempo:false).save()
@@ -68,6 +68,19 @@ class BootStrap {
 		rut2.addToAcciones(acc4)
 		rut2.addToAcciones(acc5)
 		rut2.save()
+
+	/************************************************************/
+
+		Entrenamiento ent1 = new Entrenamiento(tipo:"Rutina", usuario:pablo, rutina:rut1).save()
+		Accion acc6 = new Accion(entrenamiento:ent1, ejercicio:ej1, series:[serie1041]).save()
+		Accion acc7 = new Accion(entrenamiento:ent1, ejercicio:ej2, series:[serie1041]).save()
+		Accion acc8 = new Accion(entrenamiento:ent1, ejercicio:ej3, series:[serie1041]).save()
+		ent1.addToAcciones(acc6)
+		ent1.addToAcciones(acc7)
+		ent1.addToAcciones(acc8)
+		ent1.save()
+
+
 		
     }
     def destroy = {
