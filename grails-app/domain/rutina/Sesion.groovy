@@ -9,7 +9,7 @@ class Sesion {
 
 	static hasMany = [acciones:Accion]
 
-	 static mapping = {
+	static mapping = {
         id generator: 'hilo',
            params: [table: 'hi_value', column: 'next_value', max_lo: 100]
     }

@@ -15,6 +15,8 @@ class Rutina {
 	
 
     static constraints = {
+    	inicio nullable: true
+    	fin nullable: true
     }
 
     @Override

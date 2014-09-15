@@ -25,6 +25,7 @@ class Usuario {
 		password size: 5..15, blank: false, password:true
 		sexo inList: ["Femenino", "Masculino", "Otro"]
 		tiempoDisponible min: new Long(30)
+		naciemiento nullable: true
 	}
 	
 	@Override
