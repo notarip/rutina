@@ -8,6 +8,7 @@ class Campo {
 	static final log = LogFactory.getLog(this)
 	
     String nombre
+    Date generado = new Date()
 
     static hasMany = [usuarios: Usuario, administradores:Usuario, entrenadores:Usuario]
     

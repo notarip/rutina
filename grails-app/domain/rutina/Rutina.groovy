@@ -5,10 +5,13 @@ class Rutina {
 
 	String nombre
 	Usuario usuario
+	Date generado = new Date()
+	Date inicio
+	Date fin
 
 	static belongsTo = Usuario
 	static mappedBy = [usuario:"rutinas"]
-	static hasMany = [acciones:Accion]
+	static hasMany = [sesiones:Sesion]
 	
 
     static constraints = {

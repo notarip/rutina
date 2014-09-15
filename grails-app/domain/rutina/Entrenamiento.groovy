@@ -5,6 +5,7 @@ class Entrenamiento {
 	String tipo
 	Rutina rutina
 	Usuario usuario
+	Date generado = new Date()
 	static belongsTo = Usuario
 	static mappedBy = [usuario:"entrenamientos"]
 	static hasMany = [acciones:Accion]

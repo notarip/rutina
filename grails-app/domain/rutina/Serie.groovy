@@ -7,6 +7,7 @@ class Serie {
 	Integer series = 1
 	Long descanso = 0
 	Long tiempo = 0
+	Date generado = new Date()
 	static belongsTo = Accion
 
     static constraints = {

@@ -8,16 +8,17 @@ class Accion {
 	* es parte de una rutina
 	*/
 
-	Rutina rutina
+	Grupo grupo
 	Entrenamiento entrenamiento
 	Ejercicio ejercicio
+	Date generado = new Date()
 	static hasMany = [series: Serie]
 	
 	
     static constraints = {
     	ejercicio null:false
     	entrenamiento nullable:true
-    	rutina nullable:true
+    	grupo nullable:true
     }
 
 

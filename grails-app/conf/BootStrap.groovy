@@ -47,7 +47,12 @@ class BootStrap {
 		Ejercicio ej3 = new Ejercicio (grupo:"biceps",nombre:"Wide Grip EZ Bar Curl", descripcion:"http://www.mipielsana.com/wide-grip-ez-bar-curl/", peso:true,repeticiones:true, tiempo:false).save()
 		
 		Rutina rut1 = new Rutina(nombre:"rut1", usuario:pablo).save()
+		Grupo g1 = new Grupo(descripcion:"g1").save()
+		Grupo g2 = new Grupo(descripcion:"g2").save()
 		Rutina rut2 = new Rutina(nombre:"rut2", usuario:pablo).save()
+		Grupo g3 = new Grupo(descripcion:"g3").save()
+		Grupo g4 = new Grupo(descripcion:"g4").save()
+
 
 		Serie serie1041 = new Serie(peso:10,repeticiones:10, series:4,descanso:1).save()
 		Serie serie1521 = new Serie(peso:15,repeticiones:10, series:2,descanso:1).save()
@@ -60,14 +65,18 @@ class BootStrap {
 		Accion acc5 = new Accion(rutina:rut2, ejercicio:ej2, series:[serie1521]).save()			
 
 
-		rut1.addToAcciones(acc1)
-		rut1.addToAcciones(acc2)
-		rut1.addToAcciones(acc3)
-		rut1.save()
+		g1.addToAcciones(acc1)
+		g1.addToAcciones(acc2)
+		g1.addToAcciones(acc3)
+		g1.save()
+		rut1.addToGrupos(g1)
 
-		rut2.addToAcciones(acc4)
-		rut2.addToAcciones(acc5)
-		rut2.save()
+		g3.addToAcciones(acc4)
+		g3.addToAcciones(acc5)
+		g3.save()
+		rut2.addToGrupos(g3)
+
+		
 
 	/************************************************************/
 

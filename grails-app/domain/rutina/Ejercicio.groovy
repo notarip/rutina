@@ -5,10 +5,11 @@ class Ejercicio {
 
 	String nombre
 	String descripcion
-	String grupo
+	GrupoMuscular grupo
 	Boolean peso
 	Boolean repeticiones
 	Boolean tiempo
+	Date generado = new Date()
 	
 	//TODO agregar un link con graficos para entender de que se trata
 	

@@ -36,64 +36,52 @@ historias:
 - como campo: poder cambiar la rutina y comentar los entrenamientos !!
 - como usuario: incluir el los comments a otro usuario(tipo twitter)
 
-***
-Historia: Alta de Usuario
-Como: Usuario 
-Para: Poder utilizar el sistema 
-Quiero: Darme de alta en el sistema con nombre y email
 
 ***
-Historia: Asociarme a un campoo de Entrenamiento
-Como: Usuario 
-Para: Poder interactuar con un campoo de entrenamiento determinado 
-Quiero: Asociarme a uno o varios campoos de entrenamiento
+Escenario: Un entrenador carga una rutina para un usuario
+Dado que: 
+Un usuario tiene asociado un campo
+Y que el campo tiene asociado un entrenador
+Y que el usuario tiene el certificado medico al dia
+Y que el usuario tiene la cuota al dia
+Cuando: 
+Un entrenador cargue una rutina para un usuario
+Y complete todos las Sesiones de ejercios
+Entonces:
+Se debera validar que:
+- Los ejercicios cargados no trabajan los grupos musculares restringidos en el usuario, si es que tiene. Advertencias
+- Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento advierta.
+- Si tiene más de 60 años se enviara una notificación al administrador del campo notificando la rutina creada.
 
 ***
-Historia: Ver usuarios asociados
-Como: campoo
-Para: Poder interactuar con un los usuaios que pertenecen a mi campoo de entrenamiento
-Quiero: Ver un listado de los usuarios que estan asociados a mi campoo de entrenamiento
+Escenario: Un usuario carga un Entrenamiento asociado a una rutina
+Dado que:
+Un usuario tiene asociado un campo
+Y tiene asociada una rutina
+Y tiene el certificado medico al dia
+Y que el usuario tiene la cuota al dia
+Cuando:
+El usuario carga un entrenamiento para una rutina
+Y especifica las acciones que hizo
+Entonces:
+Se debera validar que: Los ejercicios cargados no trabajan los grupos musculares restringidos en el usuario, se permite el registro pero 
+con advertencias.
+Y se enviara una notificación al entrenador de los ejercicios hechos.
+Y si tiene más de 60 años se enviara una notificación al administrador del campo notificando los ejercios hechos.
 
 ***
-Historia: Cargar rutinas de mis usuarios
-Como: campoo
-Para: Administar las rutinas de los usuarios que pertencen a mi campoo
-Quiero: Poder cargar las rutinas correspondientes a un usuario que este asociado a mi campoo de entrenamiento
+
+Escenario: Un usuario se genera su propia rutina
+Dado que:
+El usuario esta habilitado para generar sus propias rutinas
+Cuando: 
+El usuario se carga su rutina con sus sesiones
+Entonces:
+Se devera validar:
+- Los ejercicios cargados no trabajan los grupos musculares restringidos en el usuario, si es que tiene. Se advierte pero se permite la carga.
+- Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento advierta.
+- Se advierte sobre el trabajo incorrecto de grupos musculares en las sesiones (ejemplo "Tienes más de 3 ejercicios de biceps para esta sesion")
+- Se sugiere la carga de grupos musculares en las sesiones (ejemplo: "No estás trabajando biceps")
+- Se advierte en las Series si los pesos superan más del 20 % de lo ultimo que tiene registrado para ese ejercicio
 
 ***
-Historia: Cargar mis entrenamientos
-Como: Usuario
-Para: Llevar un registro de los entrenamientos que hice
-Quiero: Poder cargar los entrenamientos que hice
-
-***
-Historia: Cargar mis entrenamientos II
-Como: Usuario
-Para: Llevar un registro de los entrenamientos que hice
-Quiero: Poder cargar los entrenamientos asociados a una rutina o como entrenamiento libre
-
-***
-Historia: Recibir notificaciones
-Como: Usuario
-Para: Saber si mi coach reviso mi entrenamiento
-Quiero: Recibir notificaciones si mi entrenador cambia algo de mi rutina
-
-
-***
-Historia: Cambiar la rutinas
-Como: campoo
-Para: Adecuar las rutinas a los usuarios dinamicamente
-Quiero: Poder cambiar las rutinas de los usuarios
-
-***
-Historia: Comentar la rutinas/entrenamientos
-Como: campoo
-Para: Hacer un seguimiento personalizado de los usuarios
-Quiero: Poder comentar las rutinas y los entrenamientos de los usuarios
-
-***
-Historia: Eligir privacidad
-Como: Usuario
-Para: Dar o no una visión global de mi actividad fisica a los distintos campoos/entrenadores
-Quiero: Poder cambiar la visibilidad de las rutinas y entrenamientos 
-
