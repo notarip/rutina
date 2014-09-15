@@ -64,7 +64,7 @@ class BootStrap {
 		Accion acc4 = new Accion(ejercicio:ej1, series:[serie1521]).save()
 		Accion acc5 = new Accion(ejercicio:ej2, series:[serie1521]).save()			
 
-		println "************** BOOTSTRAP **********************"
+		println "************** BOOTSTRAP - HIDRATANDO **********************"
 		println "GrupoMuscular 1: ${gm1}"
 		println "Ejercicio 1: ${ej1}"
 		println "Ejercicio 2: ${ej2}"
@@ -102,6 +102,8 @@ class BootStrap {
 
 	/************************************************************/
 
+		println "************** BOOTSTRAP - ENTRENANDO **********************"
+
 		Entrenamiento ent1 = new Entrenamiento(tipo:"Rutina", usuario:pablo, rutina:rut1).save()
 		Accion acc6 = new Accion(entrenamiento:ent1, ejercicio:ej1, series:[serie1041]).save()
 		Accion acc7 = new Accion(entrenamiento:ent1, ejercicio:ej2, series:[serie1041]).save()
@@ -111,7 +113,12 @@ class BootStrap {
 		ent1.addToAcciones(acc8)
 		ent1.save()
 
+		println "Entrenamiento 1: ${ent1}"
+		println "Accion 6: ${acc6}"
+		println "Accion 7: ${acc7}"
+		println "Accion 8: ${acc8}"
 
+		println "************ FIN DE BOOTSTRAP *****************"
 		
     }
     def destroy = {

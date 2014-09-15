@@ -18,6 +18,6 @@ class Entrenamiento {
 
     @Override
 	public String toString() {
-		return this.tipo;
+		return "${generado}, tipo: ${this.tipo} ";
 	}
 }
