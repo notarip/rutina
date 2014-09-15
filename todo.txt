@@ -1,8 +1,7 @@
 
-
 - Empezar a hacer cobertura con los test
 - Cargar las entidades en el boostrap
-- Validaciones contra los rol para la asignacion a un campoo
+- Validaciones contra los rol para la asignacion a un gimnasioo
 - pasar el diagrama de entidades
 
 
@@ -11,63 +10,51 @@ entidades:
 
 usuario: usuarios genericos del sistema
 rol: rol que puede tener un usuario
-campo: campoos de entrenamiento 
+gimnasio: gimnasioos de entrenamiento 
 entrenamiento: entrenamiento, agrupa varios done, puede relacionarce con una rutina o se libre
 rutina: rutina que tiene un usuario esta compuesta de varios ejercicios
 ejercicio: todos los ejercicios que se pueden planificar en una rutina. 
 evetos: eventos genericos, en principio son comentarios que se pueden asiociar a cualquier entidad
 
-sintesis:
-Es un sitio muy orientado a movile que permite a los usuarios y entrenadores gestionar los entrenamientos.
-
-
 ----------------------------------------------
+Sintesis:
 
-historias:
-
-
-- como usuario: darme de alta en el sistema, con nombre, email y password
-- como usuario: asociar mi cuenta a un campoo 
-- como campo: recibir la informacion de todos los usuarios que me tienen asociados
-- como campo: poder cargar las rutinas de mis usuarios
-- como usuario: poder cargar mis entrenamientos
-- como usuario: poder elegir si entreno libre o voy a hacer una rutina
-- como usuario: quiero recibir una notificacion si mi coach cambia algo de mi rutina !!
-- como campo: poder cambiar la rutina y comentar los entrenamientos !!
-- como usuario: incluir el los comments a otro usuario(tipo twitter)
+Es un sitio en que los usuarios pueden asociarce a gimnasios para llevar un resgistro de las rutinas de ejercicios que
+realizan y que los entrenadores puedan hacer un seguimiento personalizado presencial y no presencial de los entrenamientos
+de los clientes del gimnasio.
 
 
 ***
 Escenario: Un entrenador carga una rutina para un usuario
 Dado que: 
-Un usuario tiene asociado un campo
-Y que el campo tiene asociado un entrenador
-Y que el usuario tiene el certificado medico al dia
-Y que el usuario tiene la cuota al dia
+Un usuario tiene asociado un gimnasio
+Y que el gimnasio tiene asociado un entrenador
+Y tiene el certificado medico al dia, si no lo tiene, se advierte(!)
+Y que el usuario tiene la cuota al dia, si no la tiene, se advierte(!)
 Cuando: 
 Un entrenador cargue una rutina para un usuario
 Y complete todos las Sesiones de ejercios
 Entonces:
-Se debera validar que:
-- Los ejercicios cargados no trabajan los grupos musculares restringidos en el usuario, si es que tiene. Advertencias
-- Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento advierta.
-- Si tiene más de 60 años se enviara una notificación al administrador del campo notificando la rutina creada.
+- Si el usuario posee otra rutina para ese gimnasio se dara de baja
+- Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
+- Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento, se advierte(!).
+- Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando la rutina creada.
 
 ***
 Escenario: Un usuario carga un Entrenamiento asociado a una rutina
 Dado que:
-Un usuario tiene asociado un campo
+Un usuario tiene asociado un gimnasio
 Y tiene asociada una rutina
-Y tiene el certificado medico al dia
-Y que el usuario tiene la cuota al dia
+Y tiene el certificado medico al dia, si no lo tiene, se advierte(!)
+Y que el usuario tiene la cuota al dia, si no la tiene, se advierte(!)
 Cuando:
 El usuario carga un entrenamiento para una rutina
 Y especifica las acciones que hizo
 Entonces:
-Se debera validar que: Los ejercicios cargados no trabajan los grupos musculares restringidos en el usuario, se permite el registro pero 
-con advertencias.
-Y se enviara una notificación al entrenador de los ejercicios hechos.
-Y si tiene más de 60 años se enviara una notificación al administrador del campo notificando los ejercios hechos.
+- Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
+- Se informan los ejercicios que quedan pendientes para finalizar la rutina.
+- Se enviara una notificación al entrenador de los ejercicios hechos.
+- Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando los ejercios hechos.
 
 ***
 
@@ -78,10 +65,11 @@ Cuando:
 El usuario se carga su rutina con sus sesiones
 Entonces:
 Se devera validar:
-- Los ejercicios cargados no trabajan los grupos musculares restringidos en el usuario, si es que tiene. Se advierte pero se permite la carga.
-- Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento advierta.
-- Se advierte sobre el trabajo incorrecto de grupos musculares en las sesiones (ejemplo "Tienes más de 3 ejercicios de biceps para esta sesion")
+- Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
+- Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento, se advierte(!)
+- Se advierte(!) sobre el trabajo incorrecto de grupos musculares en las sesiones (ejemplo "Tienes más de 3 ejercicios de biceps para esta sesion")
 - Se sugiere la carga de grupos musculares en las sesiones (ejemplo: "No estás trabajando biceps")
-- Se advierte en las Series si los pesos superan más del 20 % de lo ultimo que tiene registrado para ese ejercicio
+- Se advierte en las Series si los pesos superan más del 50 % de lo ultimo que tiene registrado para ese ejercicio
 
 ***
+

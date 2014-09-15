@@ -8,7 +8,7 @@ class Accion {
 	* es parte de una rutina
 	*/
 
-	Grupo grupo
+	Sesion sesion
 	Entrenamiento entrenamiento
 	Ejercicio ejercicio
 	Date generado = new Date()
@@ -18,7 +18,7 @@ class Accion {
     static constraints = {
     	ejercicio null:false
     	entrenamiento nullable:true
-    	grupo nullable:true
+    	sesion nullable:true
     }
 
 

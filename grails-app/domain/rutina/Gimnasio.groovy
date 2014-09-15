@@ -3,7 +3,7 @@ package rutina
 import org.apache.commons.logging.LogFactory
 
 
-class Campo {
+class Gimnasio {
 
 	static final log = LogFactory.getLog(this)
 	
