@@ -7,6 +7,9 @@ class Serie {
 	Integer series = 1
 	Long descanso = 0
 	Long tiempo = 0
+	Long distancia = 0
+	Float velocidad = 0F
+
 	Date generado = new Date()
 	static belongsTo = Accion
 
@@ -16,6 +19,8 @@ class Serie {
     	series min:1
     	descanso min:0L
     	tiempo: min:0L
+    	distancia: min:0L
+    	velocidad: min:0F
     }
 
     @Override

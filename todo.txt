@@ -60,7 +60,7 @@ Entonces:
 
 Escenario: Un usuario se genera su propia rutina
 Dado que:
-El usuario esta habilitado para generar sus propias rutinas
+El usuario esta asociado o no a un gimnasio
 Cuando: 
 El usuario se carga su rutina con sus sesiones
 Entonces:
@@ -72,4 +72,16 @@ Se devera validar:
 - Se advierte en las Series si los pesos superan más del 50 % de lo ultimo que tiene registrado para ese ejercicio
 
 ***
+Escenario: Un usuario carga una serie para un ejercicio
+Dado que:
+El usuario puede cargar una serie sea para una rutina o para un entrenamiento
+Cuando: 
+El usuario carga las series relacionadas a un ejercicio.
+Entonces:
+Se valida que los cuantificadores seleccionados estan habilitados para el ejercicio
+
+***
+Escenario:
+
+
 

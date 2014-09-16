@@ -4,6 +4,7 @@ class Sesion {
 
 	Long id
 	String descripcion
+	Date fecha
 	Date generado = new Date()
 
 
@@ -15,12 +16,12 @@ class Sesion {
     }
 
     static constraints = {
-    
+    	fecha nullable: true
     }
 
 	@Override
 	public String toString() {
-		return this.descripcion;
+		return "${fecha?:""} ${this.descripcion}";
 	}
 
 }
