@@ -21,15 +21,13 @@ Sintesis:
 
 Es un sitio en que los usuarios pueden asociarce a gimnasios para llevar un resgistro de las rutinas de ejercicios que
 realizan y que los entrenadores puedan hacer un seguimiento personalizado presencial y no presencial de los entrenamientos
-de los clientes del gimnasio.
+de los usuarios del gimnasio.
 
 
 ***
 Escenario: Un entrenador carga una rutina para un usuario
 Dado que: 
-Un usuario tiene asociado un gimnasio
-Y que el gimnasio tiene asociado un entrenador
-Y tiene el certificado medico al dia, si no lo tiene, se advierte(!)
+el usuario tiene el certificado medico al dia, si no lo tiene, se advierte(!)
 Y que el usuario tiene la cuota al dia, si no la tiene, se advierte(!)
 Cuando: 
 Un entrenador cargue una rutina para un usuario
@@ -53,6 +51,7 @@ Y especifica las acciones que hizo
 Entonces:
 - Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
 - Se informan los ejercicios que quedan pendientes para finalizar la rutina.
+- Se aconseja con que ejercicio continuar
 - Se enviara una notificación al entrenador de los ejercicios hechos.
 - Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando los ejercios hechos.
 
@@ -72,6 +71,19 @@ Se devera validar:
 - Se advierte en las Series si los pesos superan más del 50 % de lo ultimo que tiene registrado para ese ejercicio
 
 ***
+Escenario: Carga de una rutina con inicio/fin
+Dado que:
+Un usuario quiere realizar un entrenamiento programado
+Y se cargaron todas las sesiones con su correspondiente fecha
+Y la rutina tiene una fecha de inicio y una de fin 
+Cuando:
+A medida que el usuario vaya cargando los entrenamientos
+Entonces: 
+Si la fecha del entrenamiento no coincide con la planificada, da la opcion de 
+replanificar, lo que corre todas las rutinas X cantidad de dias.
+
+
+***
 Escenario: Un usuario carga una serie para un ejercicio
 Dado que:
 El usuario puede cargar una serie sea para una rutina o para un entrenamiento
@@ -79,9 +91,3 @@ Cuando:
 El usuario carga las series relacionadas a un ejercicio.
 Entonces:
 Se valida que los cuantificadores seleccionados estan habilitados para el ejercicio
-
-***
-Escenario:
-
-
-
