@@ -22,7 +22,7 @@ class BootStrap {
 		jose.addToRoles(coachRole)
 		jose.save()
 		
-		Usuario pepe = new Usuario(nombre:"pepe",email:"pepe@admin.com",password:"123456", sexo:"Masculino")
+		Usuario pepe = new Usuario(nombre:"pepe",email:"pepe@admin.com",password:"123456", sexo:"Masculino", certificadoAlDia:false)
 		pepe.addToRoles(adminRole)
 		pepe.addToRoles(coachRole)
 		pepe.save()
@@ -118,7 +118,16 @@ class BootStrap {
 		println "Accion 7: ${acc7}"
 		println "Accion 8: ${acc8}"
 
-		println "************ FIN DE BOOTSTRAP *****************"
+		println "************ FIN DE BOOTSTRAP - ENTRENANDO *****************"
+
+		println "************** BOOTSTRAP - PRUEBAS **********************"
+
+		pepe.agregarRutina(rut2);
+		println "Rutina agregada"
+		//println pepe.errors.each{println it}
+		
+		println "************** FIN BOOTSTRAP - PRUEBAS **********************"
+
 		
     }
     def destroy = {
