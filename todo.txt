@@ -17,38 +17,46 @@ ejercicio: todos los ejercicios que se pueden planificar en una rutina.
 evetos: eventos genericos, en principio son comentarios que se pueden asiociar a cualquier entidad
 
 ----------------------------------------------
-Sintesis:
+Escenario:
 
 Es un sitio en que los usuarios pueden asociarce a gimnasios para llevar un resgistro de las rutinas de ejercicios que
-realizan y que los entrenadores puedan hacer un seguimiento personalizado presencial y no presencial de los entrenamientos
-de los usuarios del gimnasio.
+realizan y que los entrenadores puedan hacer un seguimiento no presencial de los usuarios del gimnasio, viendo los entrenamientos realizados por el usuario y ajustando las rutinas.
+Donde un usuario es un usuario de un gimnasio que puede tomar distintos roles: usuarios, entrenadores, administradores.
+Una rutina es un conjunto de ejercicios asociados a un usuario.
+Una sesion es un segmento de la rutina que se crea con la intención de que se ejecute de una vez.
+Los ejercicios van acompañados de sus cuantificadores, denominados series, los cuantificadores pueden ser: peso, velocidad, repeticiones, tiempo, etc.
+Un entrenamiento es un conjunto de ejercios con sus respectivas series, que el usuario ya ha hecho efectivo. Puede estar asociado a una sesion de una rutina o no (entrenamiento "libre").
 
 
 ***
-Escenario: Un entrenador carga una rutina para un usuario
+H1. Un entrenador carga una rutina para un usuario
 Dado que: 
-el usuario tiene el certificado medico al dia, si no lo tiene, se advierte(!)
-Y que el usuario tiene la cuota al dia, si no la tiene, se advierte(!)
+El usuario tiene el certificado medico al dia
+Y que el usuario tiene la cuota al dia
 Cuando: 
 Un entrenador cargue una rutina para un usuario
 Y complete todos las Sesiones de ejercios
 Entonces:
+- Si el usuario no tiene el certificado medico al dia se lanza una advertencia
+- Si el usuario no tiene la cuota al dia se lanza una advertencia 
 - Si el usuario posee otra rutina para ese gimnasio se dara de baja
 - Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
 - Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento, se advierte(!).
 - Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando la rutina creada.
 
 ***
-Escenario: Un usuario carga un Entrenamiento asociado a una rutina
+H2. Un usuario carga un Entrenamiento asociado a una rutina
 Dado que:
 Un usuario tiene asociado un gimnasio
 Y tiene asociada una rutina
-Y tiene el certificado medico al dia, si no lo tiene, se advierte(!)
-Y que el usuario tiene la cuota al dia, si no la tiene, se advierte(!)
+El usuario tiene el certificado medico al dia
+Y que el usuario tiene la cuota al dia
 Cuando:
 El usuario carga un entrenamiento para una rutina
 Y especifica las acciones que hizo
 Entonces:
+- Si el usuario no tiene el certificado medico al dia se lanza una advertencia
+- Si el usuario no tiene la cuota al dia se lanza una advertencia 
 - Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
 - Se informan los ejercicios que quedan pendientes para finalizar la rutina.
 - Se aconseja con que ejercicio continuar
@@ -56,8 +64,7 @@ Entonces:
 - Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando los ejercios hechos.
 
 ***
-
-Escenario: Un usuario se genera su propia rutina
+H3. Un usuario se genera su propia rutina
 Dado que:
 El usuario esta asociado o no a un gimnasio
 Cuando: 
@@ -67,11 +74,20 @@ Se devera validar:
 - Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
 - Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento, se advierte(!)
 - Se advierte(!) sobre el trabajo incorrecto de grupos musculares en las sesiones (ejemplo "Tienes más de 3 ejercicios de biceps para esta sesion")
-- Se sugiere la carga de grupos musculares en las sesiones (ejemplo: "No estás trabajando biceps")
 - Se advierte en las Series si los pesos superan más del 50 % de lo ultimo que tiene registrado para ese ejercicio
 
 ***
-Escenario: Carga de una rutina con inicio/fin
+H4. Un usuario se genera su propia rutina II
+Dado que:
+El usuario esta asociado o no a un gimnasio
+Cuando: 
+El usuario se carga su rutina con sus sesiones
+Entonces:
+- Se sugiere la carga de grupos musculares en las sesiones (ejemplo: "No estás trabajando biceps")
+
+
+***
+H5. Carga de una rutina con inicio/fin
 Dado que:
 Un usuario quiere realizar un entrenamiento programado
 Y se cargaron todas las sesiones con su correspondiente fecha
@@ -84,7 +100,7 @@ replanificar, lo que corre todas las rutinas X cantidad de dias.
 
 
 ***
-Escenario: Un usuario carga una serie para un ejercicio
+H6. Un usuario carga una serie para un ejercicio
 Dado que:
 El usuario puede cargar una serie sea para una rutina o para un entrenamiento
 Cuando: 
