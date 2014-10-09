@@ -1,45 +1,48 @@
 
 - Empezar a hacer cobertura con los test
 - Cargar las entidades en el boostrap
-- Validaciones contra los rol para la asignacion a un gimnasioo
+- Validaciones contra los rol para la asignación a un gimnasio
 - pasar el diagrama de entidades
 
 
 ---------------------------------------------
 entidades:
 
-usuario: usuarios genericos del sistema
+usuario: usuarios genéricos del sistema
 rol: rol que puede tener un usuario
-gimnasio: gimnasioos de entrenamiento 
-entrenamiento: entrenamiento, agrupa varios done, puede relacionarce con una rutina o se libre
+gimnasio: gimnasios de entrenamiento 
+entrenamiento: entrenamiento, agrupa varios done, puede relacionarse con una rutina o se libre
 rutina: rutina que tiene un usuario esta compuesta de varios ejercicios
 ejercicio: todos los ejercicios que se pueden planificar en una rutina. 
-evetos: eventos genericos, en principio son comentarios que se pueden asiociar a cualquier entidad
+eventos: eventos genéricos, en principio son comentarios que se pueden asociar a cualquier entidad
 
 ----------------------------------------------
 Escenario:
 
-Es un sitio en que los usuarios pueden asociarce a gimnasios para llevar un resgistro de las rutinas de ejercicios que
-realizan y que los entrenadores puedan hacer un seguimiento no presencial de los usuarios del gimnasio, viendo los entrenamientos realizados por el usuario y ajustando las rutinas.
-Donde un usuario es un usuario de un gimnasio que puede tomar distintos roles: usuarios, entrenadores, administradores.
+Es un sitio en que los usuarios pueden asociare a gimnasios para llevar un registro de las rutinas de ejercicios que
+realizan y que los entrenadores puedan hacer un seguimiento no presencial de los usuarios del gimnasio, viendo los entrenamientos 
+realizados por el usuario y ajustando las rutinas.
+Donde un usuario es un usuario de un gimnasio que puede tomar distintos roles: usuario, entrenador, administrador.
 Una rutina es un conjunto de ejercicios asociados a un usuario.
-Una sesion es un segmento de la rutina que se crea con la intención de que se ejecute de una vez.
+Una sesión es un segmento de la rutina que se crea con la intención de que se ejecute de una vez. 
 Los ejercicios van acompañados de sus cuantificadores, denominados series, los cuantificadores pueden ser: peso, velocidad, repeticiones, tiempo, etc.
-Un entrenamiento es un conjunto de ejercios con sus respectivas series, que el usuario ya ha hecho efectivo. Puede estar asociado a una sesion de una rutina o no (entrenamiento "libre").
+Un entrenamiento es un conjunto de ejercicios con sus respectivas series, que el usuario ya ha hecho efectivo. Puede estar asociado a 
+una sesión de una rutina o no (entrenamiento "libre").
+En cuanto a las sugerencias de carga de grupos musculares se basan en una configuración que fija los grupos musculares básicos a trabajar en una sesión. 
 
 
 ***
 H1. Un entrenador carga una rutina para un usuario
 Dado que: 
-El usuario tiene el certificado medico al dia
-Y que el usuario tiene la cuota al dia
+El usuario tiene el certificado medico al día
+Y que el usuario tiene la cuota al día
 Cuando: 
 Un entrenador cargue una rutina para un usuario
-Y complete todos las Sesiones de ejercios
+Y complete todos las Sesiones de ejercicios
 Entonces:
-- Si el usuario no tiene el certificado medico al dia se lanza una advertencia
-- Si el usuario no tiene la cuota al dia se lanza una advertencia 
-- Si el usuario posee otra rutina para ese gimnasio se dara de baja
+- Si el usuario no tiene el certificado medico al día se lanza una advertencia
+- Si el usuario no tiene la cuota al día se lanza una advertencia 
+- Si el usuario posee otra rutina para ese gimnasio se dará de baja
 - Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
 - Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento, se advierte(!).
 - Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando la rutina creada.
@@ -49,28 +52,28 @@ H2. Un usuario carga un Entrenamiento asociado a una rutina
 Dado que:
 Un usuario tiene asociado un gimnasio
 Y tiene asociada una rutina
-El usuario tiene el certificado medico al dia
-Y que el usuario tiene la cuota al dia
+El usuario tiene el certificado medico al día
+Y que el usuario tiene la cuota al día
 Cuando:
 El usuario carga un entrenamiento para una rutina
 Y especifica las acciones que hizo
 Entonces:
-- Si el usuario no tiene el certificado medico al dia se lanza una advertencia
-- Si el usuario no tiene la cuota al dia se lanza una advertencia 
+- Si el usuario no tiene el certificado medico al día se lanza una advertencia
+- Si el usuario no tiene la cuota al día se lanza una advertencia 
 - Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
 - Se informan los ejercicios que quedan pendientes para finalizar la rutina.
 - Se aconseja con que ejercicio continuar
 - Se enviara una notificación al entrenador de los ejercicios hechos.
-- Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando los ejercios hechos.
+- Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando los ejercicios hechos.
 
 ***
 H3. Un usuario se genera su propia rutina
 Dado que:
-El usuario esta asociado o no a un gimnasio
+El usuario puede gestionar sus rutinas 
 Cuando: 
 El usuario se carga su rutina con sus sesiones
 Entonces:
-Se devera validar:
+Se deberá validar:
 - Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
 - Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento, se advierte(!)
 - Se advierte(!) sobre el trabajo incorrecto de grupos musculares en las sesiones (ejemplo "Tienes más de 3 ejercicios de biceps para esta sesion")
@@ -79,11 +82,12 @@ Se devera validar:
 ***
 H4. Un usuario se genera su propia rutina II
 Dado que:
-El usuario esta asociado o no a un gimnasio
+El usuario puede gestionar sus rutinas 
+Existe una previa configuración de los grupos musculares básicos a trabajar en una sesión.
 Cuando: 
 El usuario se carga su rutina con sus sesiones
 Entonces:
-- Se sugiere la carga de grupos musculares en las sesiones (ejemplo: "No estás trabajando biceps")
+- Se sugiere la carga de grupos musculares en las sesiones (ejemplo: "No estás trabajando bíceps")
 
 
 ***
@@ -95,15 +99,18 @@ Y la rutina tiene una fecha de inicio y una de fin
 Cuando:
 A medida que el usuario vaya cargando los entrenamientos
 Entonces: 
-Si la fecha del entrenamiento no coincide con la planificada, da la opcion de 
-replanificar, lo que corre todas las rutinas X cantidad de dias.
+Si la fecha del entrenamiento no coincide con la planificada, da la opción de 
+re planificar, lo que corre todas las rutinas X cantidad de días.
 
 
 ***
 H6. Un usuario carga una serie para un ejercicio
 Dado que:
-El usuario puede cargar una serie sea para una rutina o para un entrenamiento
+El usuario tiene una rutina y este cargando un entrenamiento para la misma.
+O el usuario este realizando un entrenamiento libre.
+O el usuario este cargando una rutina nueva.
 Cuando: 
 El usuario carga las series relacionadas a un ejercicio.
 Entonces:
-Se valida que los cuantificadores seleccionados estan habilitados para el ejercicio
+Se valida que los cuantificadores seleccionados están habilitados para el ejercicio.
+
