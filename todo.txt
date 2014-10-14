@@ -67,9 +67,9 @@ Entonces:
 - Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando los ejercicios hechos.
 
 ***
-H3. Un usuario se genera su propia rutina
+H3. Un usuario se genera su propia rutina asociada a un gimnasio
 Dado que:
-El usuario puede gestionar sus rutinas 
+El usuario esta asociado a un gimnasio y que tiene la cuota al día
 Cuando: 
 El usuario se carga su rutina con sus sesiones
 Entonces:
@@ -82,7 +82,6 @@ Se deberá validar:
 ***
 H4. Un usuario se genera su propia rutina II
 Dado que:
-El usuario puede gestionar sus rutinas 
 Existe una previa configuración de los grupos musculares básicos a trabajar en una sesión.
 Cuando: 
 El usuario se carga su rutina con sus sesiones
@@ -114,3 +113,15 @@ El usuario carga las series relacionadas a un ejercicio.
 Entonces:
 Se valida que los cuantificadores seleccionados están habilitados para el ejercicio.
 
+
+Marcos:
+
+
+H1: ok
+H2: ok
+H3: ¿la precondición es únicamente ser usuario?, ok
+H4: mismo caso que H3. ¿Cómo es el sistema de recomendaciones?, ok
+H5: ok. Ojo que la planificación de las fechas lleva a un subdominio diferente. 
+H6: no se indica cuándo un usuario puede cargar una serie. 
+
+Me generan dudas sobre la complejidad H4 y H5. Según cómo las hagas, puede ser que haya que recortar un poco.
