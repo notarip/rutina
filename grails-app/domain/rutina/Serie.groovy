@@ -23,6 +23,12 @@ class Serie {
     	velocidad: min:0F
     }
 
+    public Long tiempoTotal(){
+
+    	return series*(descanso) + tiempo
+
+    }
+
     @Override
 	public String toString() {
 		return " $peso * $repeticiones * $series"

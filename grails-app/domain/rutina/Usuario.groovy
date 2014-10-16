@@ -16,7 +16,7 @@ class Usuario {
 
 	static hasMany = [adminGyms:Gimnasio,userGyms:Gimnasio,coachGyms:Gimnasio, 
 						roles: Rol, rutinas:Rutina, entrenamientos: Entrenamiento, 
-						gruposMuscularesRestringidos: GurpoMuscular]
+						gruposMuscularesRestringidos: GrupoMuscular]
 
 	static belongsTo = Gimnasio
 	static mappedBy = [adminGyms:"administradores", userGyms: "usuarios",coachGyms: "entrenadores"]
@@ -32,35 +32,79 @@ class Usuario {
 	}
 	
 
-/*
-- Si el usuario no tiene el certificado medico al dia se lanza una advertencia
-- Si el usuario no tiene la cuota al dia se lanza una advertencia 
-- Si el usuario posee otra rutina para ese gimnasio se dara de baja
-- Si los ejercicios cargados trabajan los grupos musculares restringidos en el usuario, se advierte(!)
-- Si las sesiones de ejercicios superan el tiempo que puede dedicar el usuario a cada entrenamiento, se advierte(!).
-- Si tiene más de 60 años se enviara una notificación al administrador del gimnasio notificando la rutina creada.
-
-*/
 	def agregarRutina(Rutina rutina){
 
-		if(!certificadoAlDia)
-			this.errors.rejectValue('rutinas','user.certificado.vencido')
-		if(!cuotaAlDia)	
-			this.errors.rejectValue('rutinas','user.cuota.vencida')
+		def error = false
 
-		if(!validarGruposMusculares(rutina))
+		if(!rutinas) rutinas = []
+
+		if(!certificadoAlDia){
+			this.errors.rejectValue('rutinas','user.certificado.vencido')
+		}
+
+		if(!cuotaAlDia){
+			this.errors.rejectValue('rutinas','user.cuota.vencida')
+		}
+
+		if(!validarGruposMusculares(rutina)){
 			this.errors.rejectValue('rutinas','user.grupos.musculares.restringidos')
+		}
+
+		if(!excedeTiempoADedicar(rutina)){
+			this.errors.rejectValue('rutinas','user.supera.tiempo.disponible')
+		}		
+
+		darDeBajaRutinas(rutina)
+
+		enviarNotificaciones(rutina)
+
+		rutinas.add(rutina)
 
 
 	}
 
+	private void enviarNotificaciones(Rutina rutina){
+
+		//armar un servicio para notificaciones
+		new Notificacion(usuario: this, mensaje: "El usuario ${this} tiene mas de 60 años").save()
+
+
+	}
+
+	private void darDeBajaRutinas(Rutina rutina){
+
+		rutinas.each(){ 
+			if (it.gimnasio == rutina.gimnasio)
+				it.fin  = new Date() 
+		}
+	}
+
+	private boolean excedeTiempoADedicar(Rutina rutina){
+
+		if(tiempoDisponible > 0){
+
+			
+		}
+
+		return false
+	}
+
 	private boolean validarGruposMusculares(Rutina rutina){
 
-		//recuperar todos los ejercios de la rutina y validar que no
-		//trabajen grupos musculares restringidos
+		def lista = []
+		boolean hayRestringidos = false
+		
+		if(gruposMuscularesRestringidos){
 
+			rutina.sesiones.each(){  
+				it.acciones.each() { 
+					lista.add(it.ejercicio.grupo)
+				} 
+			}
+			hayRestringidos = lista.intersect(gruposMuscularesRestringidos)
+		}
 
-		return true;
+		return hayRestringidos
 	}
 
 	@Override

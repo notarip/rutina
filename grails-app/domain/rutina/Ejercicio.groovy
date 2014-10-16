@@ -10,6 +10,7 @@ class Ejercicio {
 	Boolean repeticiones
 	Boolean tiempo
 	Date generado = new Date()
+	Long tiempoPromedio = 0L
 	
 	//TODO agregar un link con graficos para entender de que se trata
 	

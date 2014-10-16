@@ -19,6 +19,15 @@ class Sesion {
     	fecha nullable: true
     }
 
+	
+	public Long tiempoPorSesion(){
+
+		Long total = 0
+		acciones.each(){
+			total += it.tiempoTotal()
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "${fecha?:""} ${this.descripcion}";

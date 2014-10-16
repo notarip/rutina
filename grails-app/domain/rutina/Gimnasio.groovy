@@ -10,7 +10,10 @@ class Gimnasio {
     String nombre
     Date generado = new Date()
 
-    static hasMany = [usuarios: Usuario, administradores:Usuario, entrenadores:Usuario]
+    static hasMany = [usuarios: Usuario,
+    				administradores:Usuario, 
+    				entrenadores:Usuario,
+    				rutinas: Rutina]
     
 	static constraints = {
         nombre(nullable: false, blank: false, unique: true)

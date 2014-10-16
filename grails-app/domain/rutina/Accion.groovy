@@ -22,6 +22,12 @@ class Accion {
     }
 
 
+    public Long tiempoTotal(){
+
+    	return serie.tiempoTotal() + ejercicio.tiempoPromedio*serie.repeticiones
+
+    }
+
     @Override
 	public String toString() {
 		return "$ejercicio " + series.toListString(10)

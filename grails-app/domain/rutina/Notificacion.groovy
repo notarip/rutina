@@ -14,5 +14,6 @@ class Notificacion {
     }
 
     static constraints = {
+    	notificado nullable: true
     }
 }

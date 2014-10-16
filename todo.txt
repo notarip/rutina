@@ -107,7 +107,7 @@ H6. Un usuario carga una serie para un ejercicio
 Dado que:
 El usuario tiene una rutina y este cargando un entrenamiento para la misma.
 O el usuario este realizando un entrenamiento libre.
-O el usuario este cargando una rutina nueva.
+O el usuario este cargando una serie para una rutina nueva.
 Cuando: 
 El usuario carga las series relacionadas a un ejercicio.
 Entonces:
