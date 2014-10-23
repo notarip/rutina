@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,36 +24,9 @@
 
   <body role="document">
 
- 
-      </div>
-    </div>
+  <h1>Logueado ${usuario}</h1>
 
-    <div class="container theme-showcase" role="main">
-      <div class="page-header">
-        <h1>Login</h1>
-      </div>
-    <form action="">
-      <div class="well carousel-search hidden-sm">
-        <select id="selectUser">
-            <option value="pablo">Pablo - User</option>
-            <option value="charles">Charles - Coach</option>
-        </select>
-          <div class="btn-group">
-              <button type="button" class="btn btn-lg btn-primary">Login</button>
-          </div>
-      </div>
-    </form>
-      
-
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../js/boostrap/bootstrap.min.js"></script>
-    <script src="../js/boostrap/docs.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/boostrap/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+
+

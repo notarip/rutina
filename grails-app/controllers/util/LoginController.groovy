@@ -2,20 +2,37 @@ package util
 
 class LoginController {
 
+    
+	def index(){
+
+
+	}
+
+	def login() {
+
+		
+		def user = params["user"]
+		session["user"] = user
+
+        log.debug "user " + session["user"]
+
+        [usuario: session["user"]]
+
+
+
+    }
+
     def logout() {
 
-        log.info "User agent: " + request.getHeader("User-Agent")
+        def usuario = session["user"]
+        log.debug "Cerrando sesion "  + usuario
         session.invalidate()
-        redirect(action: "login")
+
+        [usuario:usuario]
+        
 
     }
 
-    def login() {
-
-		def user = session["user"]
-		session["user"] = "John"
-		
-
-    }
+ 
 
 }
