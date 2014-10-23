@@ -11,14 +11,23 @@ class LoginController {
 	def login() {
 
 		
-		def user = params["user"]
-		session["user"] = user
+		String user = params["user"]?:""
+		String sessionUser = session["user"]?:""
 
-        log.debug "user " + session["user"]
+
+        if (user.isEmpty() && sessionUser.isEmpty()){
+
+         redirect(action: "index", params: params)
+
+        }else if (!user.isEmpty()){
+
+        	session["user"] = user
+
+        }
+
+		
 
         [usuario: session["user"]]
-
-
 
     }
 
@@ -28,7 +37,7 @@ class LoginController {
         log.debug "Cerrando sesion "  + usuario
         session.invalidate()
 
-        [usuario:usuario]
+        redirect(action: "index", params: params)
         
 
     }
