@@ -1,17 +1,26 @@
 package util
 
+
+class LoginCommand {
+	String user
+
+	static constraints = {
+			user blank: false, minSize: 6
+		}
+}
+
+
 class LoginController {
 
-    
 	def index(){
 
 
 	}
 
-	def login() {
+	def login(LoginCommand cmd) {
 
 		
-		String user = params["user"]?:""
+		String user = cmd.user?:""
 		String sessionUser = session["user"]?:""
 
 

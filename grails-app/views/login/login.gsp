@@ -27,8 +27,10 @@
 
   <body role="document">
 
+  <div>
   <h1>Logueado ${usuario}</h1>
 
+</div>
   </body>
 </html>
 
