@@ -12,16 +12,34 @@ class UsuarioSpec extends Specification {
 
     def setup() {
     }
-
     def cleanup() {
     }
 
-    void "test crear Usuario"() {
+    def "testear nombre nulo o blanco"() {
+
+        given:
+            mockForConstraintsTests(Usuario)
+            Usuario usu1 = new Usuario (nombre :"", email:"pablo@pablo", password:"123456")
 
     	when:
-    	Usuario usu1 = new Usuario (nombre :"Pablo", email:"pablo@pablo", password:"123456")
-    	
+            usu1.validate()
+    	    	
     	then:
-    	usu1  && usu1.getNombre()=="Pablo" && usu1.getEmail()=="pablo@pablo" && usu1.getPassword()=="123456"
+            usu1.errors.hasFieldErrors("nombre") 
     }
+
+    def "el sexo debe ser Femenino, Masculino u Otro"(){
+
+        given:
+            mockForConstraintsTests(Usuario)
+            Usuario usu1 = new Usuario(sexo:"Hermafrodita") 
+
+        when:
+            usu1.validate()
+
+        then:
+            usu1.errors.hasFieldErrors("sexo")
+
+    }
+
 }
