@@ -24,8 +24,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Menu</a></li>
-                <li><a href="#">Rutinas</a></li>
-                <li><a href="#">Entrenamientos</a></li>
+                <li><a href="/rutina/rutina">Rutinas</a></li>
+                <li><a href="/rutina/entrenamiento">Entrenamientos</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Nav header</li>
                 <li><a href="#">Separated link</a></li>

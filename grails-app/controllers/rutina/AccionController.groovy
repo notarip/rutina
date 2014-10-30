@@ -1,5 +1,5 @@
 package rutina
 
 class AccionController {
-    static scaffold = true
+    //static scaffold = true
 }

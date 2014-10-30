@@ -1,5 +1,5 @@
 package rutina
 
 class GimnasioController {
-	static scaffold = true
+	//static scaffold = true
 }

@@ -63,6 +63,17 @@ class Usuario {
 
 	}
 
+	public boolean esAdmin(){
+		
+		roles.each() { 
+			if 	(it.nombre == "ADMIN"){
+				return true
+			}
+		}
+		return false
+	}
+
+
 	private void enviarNotificaciones(Rutina rutina){
 
 		//armar un servicio para notificaciones

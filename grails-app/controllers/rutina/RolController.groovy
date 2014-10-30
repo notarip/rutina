@@ -1,5 +1,5 @@
 package rutina
 
 class RolController {
-	static scaffold = true
+	//static scaffold = true
 }

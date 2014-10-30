@@ -1,5 +1,5 @@
 package rutina
 
 class SerieController {
-    static scaffold = true
+    //static scaffold = true
 }

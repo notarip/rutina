@@ -15,6 +15,9 @@ class UsuarioSpec extends Specification {
     def cleanup() {
     }
 
+
+    
+
     def "testear nombre nulo o blanco"() {
 
         given:
