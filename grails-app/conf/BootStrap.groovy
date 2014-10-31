@@ -5,7 +5,6 @@ class BootStrap {
     def init = { servletContext ->
 
 		Rol userRole = new Rol(nombre:"USER").save()
-		Rol adminRole = new Rol(nombre:"ADMIN").save()
 		Rol coachRole = new Rol(nombre:"COACH").save()
 		
 		Gimnasio mega1 = new Gimnasio(nombre:"mega1").save()
@@ -18,26 +17,21 @@ class BootStrap {
 		pablo.save()
 		
 		Usuario jose = new Usuario(nombre:"jose",email:"jose@admin.com", password:"123456", sexo:"Masculino")
-		jose.addToRoles(adminRole)
 		jose.addToRoles(coachRole)
 		jose.save()
 		
 		Usuario pepe = new Usuario(nombre:"pepe",email:"pepe@admin.com",password:"123456", sexo:"Masculino", certificadoAlDia:false)
-		pepe.addToRoles(adminRole)
 		pepe.addToRoles(coachRole)
 		pepe.save()
 		
 		
 		mega1.addToUsuarios(pablo)
-		mega1.addToAdministradores(pablo)
-		mega1.addToAdministradores(jose)
 		mega1.addToEntrenadores(jose)
 		mega1.save()
 		
 
 		mega2.addToUsuarios(pablo)
-		mega2.addToAdministradores(pepe)
-		mega2.addToEntrenadores(jose)
+		mega2.addToEntrenadores(pepe)
 		mega2.save()
 	/************************************************************/
 

@@ -26,22 +26,28 @@ class RutinaController {
     	Usuario usuario = usuarioService.recuperarUsuarioSesion(session)
 
     	if (usuario){
+    		def usuarios = [];
 			if (usuario.esAdmin()){
 
-				render "es admin"
+				usuario.coachGyms.each(){ usuarios.addAll(it.usuarios) }
+
 			}else{
 				
-				render "no es esAdmin"
+				usuarios.add(usuario)
+
 			}
+
+            def gimnasios = Gimnasio.list()
+
+			[usuarios:usuarios, gimnasios:gimnasios ,rutina: new Rutina()]
+		
 		}else{
 
-			redirect(action: "/rutina/login")
-
+			redirect(controller: "login", action: "index")
 		}
 
 
-
-        respond new Rutina(params)
+		
     }
 
     @Transactional

@@ -42,7 +42,7 @@
       <div class="well carousel-search hidden-sm">
         <select name="user" id="selectUser">
             <option value="pablo">Pablo - User</option>
-            <option value="charles">Charles - Coach</option>
+            <option value="pepe">pepe - Coach</option>
         </select>
           <div class="btn-group">
             <g:actionSubmit class="btn btn-lg btn-primary" action="login" value="${message(code: 'default.button.login.label', default: 'Login')}" />

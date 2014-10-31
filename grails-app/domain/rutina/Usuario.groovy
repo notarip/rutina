@@ -14,12 +14,12 @@ class Usuario {
 	String sexo
 	Date generado = new Date()
 
-	static hasMany = [adminGyms:Gimnasio,userGyms:Gimnasio,coachGyms:Gimnasio, 
+	static hasMany = [userGyms:Gimnasio,coachGyms:Gimnasio, 
 						roles: Rol, rutinas:Rutina, entrenamientos: Entrenamiento, 
 						gruposMuscularesRestringidos: GrupoMuscular]
 
 	static belongsTo = Gimnasio
-	static mappedBy = [adminGyms:"administradores", userGyms: "usuarios",coachGyms: "entrenadores"]
+	static mappedBy = [userGyms: "usuarios",coachGyms: "entrenadores"]
 
 	
 	static constraints = {

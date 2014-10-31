@@ -46,6 +46,7 @@
 
 <body>
     <div id="header">HEADER</div>
+    <br>
     <g:layoutBody/>
     
 </body>
