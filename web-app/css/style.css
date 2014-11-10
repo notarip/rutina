@@ -1,0 +1,11 @@
+
+select{
+	height: 44px;
+	border-radius: 5px;
+	font-family: monospace;
+	font-size: larger;
+}
+
+td {
+    padding: 5px;
+}

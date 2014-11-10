@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<g:set var="entityName" value="${message(code: 'rutina.label', default: 'Rutina')}" />
+		<title><g:message code="default.create.label" args="[entityName]" /></title>
+    	<meta name="layout" content="header"/>
+
+
+	</head>
+	<body>
+		<script>
+			$(function() {
+				$( "#datepicker_desde" ).datepicker();
+				$( "#datepicker_hasta" ).datepicker();
+				$("[id^=datepicker]").datepicker( "option", "dateFormat", "dd/mm/yy" );
+				$("[id^=datepicker]").datepicker({ minDate: -20, maxDate: "+1M +10D" });
+				$("#accordion").accordion({active: 1});
+				$( "#crearSesion" ).click(function() {
+					//postear la sesion
+					//agregar una linea de accion
+
+					alert(this);
+
+				});
+			});
+		</script>
+
+		<div id="create-rutina" class="content scaffold-create" role="main">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title"><g:message code="default.create.label" args="[entityName]" /></h3>
+				</div>
+				<div class="panel-body">
+
+			<g:if test="${flash.message}">
+			<div class="message" role="status">${flash.message}</div>
+			</g:if>
+			<g:hasErrors bean="${rutinaInstance}">
+			<ul class="errors" role="alert">
+				<g:eachError bean="${rutinaInstance}" var="error">
+				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+				</g:eachError>
+			</ul>
+			</g:hasErrors>
+
+			<g:form action="save" >
+
+			</div>
+							<div id="accordion">
+										<h3>Rutina</h3>
+									<table>
+									<tr>
+										<td>
+											<tr>
+												<th><label for="gimnasio">Gimnacio</label></th>
+												<td><g:select class="selectpicker show-tick form-control" data-live-search="true" name="gimnasio" from="${gimnasios}"  value="${rutina.gimnasio}" optionKey="nombre"/></td>
+											</tr>
+											<tr>
+												<th><label for="usuario">Usuario</label></th>
+												<td><g:select class="selectpicker show-tick form-control" data-live-search="true" name="usuario" from="${usuarios}"  value="${rutina.usuario}" optionKey="nombre"/></td>
+											</tr>
+											<tr>
+												<th><label for="desde">Desde</label></th>
+												<td><input type="text" name="desde" id="datepicker_desde"></td>
+												<!-- td><g:datePicker class="selectpicker show-tick form-control" name="desde" value="${new Date()}" precision="day"  relativeYears="[0..4]" noSelection="['':'-Choose-']"/></td -->
+											</tr>
+											<tr>
+												<th><label for="hasta">Hasta</label></th>
+												<td><input type="text" name="hasta" id="datepicker_hasta"></td>
+												<!-- td><g:datePicker class="selectpicker show-tick form-control" name="hasta" value="${new Date()}" precision="day"  relativeYears="[0..4]" noSelection="['':'-Choose-']"/></td-->
+											</tr>
+										</td>
+								</tr>
+								</table>
+
+								<h4>Sesion 1</h4>
+								<div>
+								<table>
+								<tr>
+									<th><label for="descripcion">Descripci&oacute;n</label></th>
+									<td><g:textField name="descripcion" value="${sesion?.descripcion}"/></td>
+									<td><button type="button" id="crearSesion" class="btn btn-xs btn-success">Crear</button></td>
+								</tr>
+								<tr>
+									<div id="accionRow">
+									<th rowspan="2" style="vertical-align:bottom;"><label for="ejercicio">Ejercicio</label></th>
+									<td rowspan="2" style="vertical-align:bottom;"><g:select class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
+									<td><label for="peso">Peso</label><br><g:field name="peso" type="number" maxlength="4" min="0" max="500" value="0"/></td>
+									<td><label for="repeteciones">Repet.</label><br><g:field name="repeticiones" type="number" maxlength="4" min="1" max="500" value="1"/></td>
+									<td><label for="series">Series</label><br><g:field name="series" type="number" maxlength="2" min="1" max="100" value="1"/></td>
+									<td><label for="descanso">Desc.</label><br><g:field name="descanso" type="number" maxlength="2" min="0" max="100" value="1"/></td>
+									<td><label for="tiempo">Tie.(")</label><br><g:field name="tiempo" type="number" maxlength="4" min="0" max="500" value="1"/></td>
+									<td><label for="distancia">Dis.(km)</label><br><g:field name="distancia" type="number" maxlength="4" min="0" max="100" value="1"/></td>
+									<td><label for="velocidad">Vel.(km/h)</label><br><g:field name="velocidad" type="number" maxlength="2" min="0" max="80" value="1"/></td>
+									<td><br><button type="button" id="crearAccion" class="btn btn-xs btn-success">Crear</button></td>
+								</div>
+								</tr>
+
+							</table>
+					</div>
+				</div>
+					<fieldset class="buttons">
+						<g:submitButton name="create" class="btn btn-lg btn-success" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+					</fieldset>
+			</g:form>
+		</div>
+	</div>
+	</body>
+</html>
