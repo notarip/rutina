@@ -26,28 +26,30 @@ class RutinaController {
     	Usuario usuario = usuarioService.recuperarUsuarioSesion(session)
 
     	if (usuario){
+
     		def usuarios = [];
-			if (usuario.esAdmin()){
+  			if (usuario.esAdmin()){
 
-				usuario.coachGyms.each(){ usuarios.addAll(it.usuarios) }
+  				usuario.coachGyms.each(){ usuarios.addAll(it.usuarios) }
 
-			}else{
-				
-				usuarios.add(usuario)
+  			}else{
 
-			}
+  				usuarios.add(usuario)
 
-            def gimnasios = Gimnasio.list()
+  			}
 
-			[usuarios:usuarios, gimnasios:gimnasios ,rutina: new Rutina()]
-		
-		}else{
+        def gimnasios = Gimnasio.list()
+        def ejercicios = Ejercicio.list()
 
-			redirect(controller: "login", action: "index")
-		}
+  			[rutinaInstance: new Rutina(usuario:usuario), usuarios:usuarios, gimnasios:gimnasios, ejercicios:ejercicios ,rutina: new Rutina()]
+
+  		}else{
+
+  			redirect(controller: "login", action: "index")
+  		}
 
 
-		
+
     }
 
     @Transactional

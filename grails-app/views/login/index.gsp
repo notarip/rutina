@@ -14,7 +14,7 @@
       </div>
 	<g:form method="post" >
       <div class="well carousel-search hidden-sm">
-        <select name="user" id="selectUser">
+        <select name="user" id="selectUser" class="combo1">
             <option value="pablo">Pablo - User</option>
             <option value="pepe">pepe - Coach</option>
         </select>
@@ -24,9 +24,7 @@
           </div>
       </div>
     </g:form>
-      
+
     </div>
   </body>
 </html>
-
-

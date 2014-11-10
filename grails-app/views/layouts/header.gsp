@@ -11,17 +11,26 @@
     <link rel="icon" href="../../favicon.ico">
 
 
-
+    <link href="${resource(dir: 'css/boostrap', file: 'bootstrap-select.css')}" rel="stylesheet">
     <link href="${resource(dir: 'css/boostrap', file: 'bootstrap.min.css')}" rel="stylesheet">
     <link href="${resource(dir: 'css/boostrap', file: 'bootstrap-theme.min.css')}" rel="stylesheet">
-    <link href="${resource(dir: 'css', file: 'login.css')}" rel="stylesheet">
+    <link href="${resource(dir: 'css', file: 'style.css')}" rel="stylesheet">
     <link href="${resource(dir: 'css/boostrap', file: 'theme.css')}" rel="stylesheet">
+    <link href="${resource(dir: 'js/jquery-ui-1.11.2.custom', file: 'jquery-ui.min.css')}" rel="stylesheet">
+
     <script src="${resource(dir: 'js/boostrap', file: 'ie-emulation-modes-warning.js')}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script -->
+    <script src="${resource(dir: 'jquery-ui-1.11.2.custom/external/jquery', file: 'jquery.js')}"></script>
+    <script src="${resource(dir: 'js/jquery-ui-1.11.2.custom', file: 'jquery-ui.js')}"></script>
+
     <script src="${resource(dir: 'js/boostrap', file: 'bootstrap.min.js')}"></script>
     <script src="${resource(dir: 'js/boostrap', file: 'docs.min.js')}"></script>
+    <script src="${resource(dir: 'js/boostrap', file: 'bootstrap-select.js')}"></script>
+    <script src="${resource(dir: 'js', file: 'rutina.js')}"></script>
+
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="${resource(dir: 'js/boostrap', file: 'ie10-viewport-bug-workaround.js')}"></script>
+
 
 
 
@@ -58,8 +67,8 @@
             </g:if>
             <g:else>
                <li><a href="/rutina/login/index">Login</a></li>
-            </g:else>            
-          </ul> 
+            </g:else>
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -68,9 +77,6 @@
 <body>
     <br>
     <g:layoutBody/>
-    
+
 </body>
 </html>
-
-
-
