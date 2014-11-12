@@ -4,7 +4,7 @@ package rutina
 
 class Usuario {
 
-  	String nombre
+	String nombre
 	String email
 	String password
 	Boolean cuotaAlDia = new Boolean(Boolean.TRUE)
@@ -14,14 +14,14 @@ class Usuario {
 	String sexo
 	Date generado = new Date()
 
-	static hasMany = [userGyms:Gimnasio,coachGyms:Gimnasio, 
-						roles: Rol, rutinas:Rutina, entrenamientos: Entrenamiento, 
+	static hasMany = [userGyms:Gimnasio,coachGyms:Gimnasio,
+						roles: Rol, rutinas:Rutina, entrenamientos: Entrenamiento,
 						gruposMuscularesRestringidos: GrupoMuscular]
 
 	static belongsTo = Gimnasio
 	static mappedBy = [userGyms: "usuarios",coachGyms: "entrenadores"]
 
-	
+
 	static constraints = {
 		nombre nullable: false, blank: false
 		email email:true
@@ -30,7 +30,7 @@ class Usuario {
 		tiempoDisponible min: new Long(30)
 		naciemiento nullable: true
 	}
-	
+
 
 	def agregarRutina(Rutina rutina){
 
@@ -52,7 +52,7 @@ class Usuario {
 
 		if(!excedeTiempoADedicar(rutina)){
 			this.errors.rejectValue('rutinas','user.supera.tiempo.disponible')
-		}		
+		}
 
 		darDeBajaRutinas(rutina)
 
@@ -64,8 +64,8 @@ class Usuario {
 	}
 
 	public boolean esAdmin(){
-		
-		roles.each() { 
+
+		roles.each() {
 			if 	(it.nombre == "ADMIN"){
 				return true
 			}
@@ -84,9 +84,9 @@ class Usuario {
 
 	private void darDeBajaRutinas(Rutina rutina){
 
-		rutinas.each(){ 
+		rutinas.each(){
 			if (it.gimnasio == rutina.gimnasio)
-				it.fin  = new Date() 
+				it.fin  = new Date()
 		}
 	}
 
@@ -94,7 +94,7 @@ class Usuario {
 
 		if(tiempoDisponible > 0){
 
-			
+
 		}
 
 		return false
@@ -104,13 +104,13 @@ class Usuario {
 
 		def lista = []
 		boolean hayRestringidos = false
-		
+
 		if(gruposMuscularesRestringidos){
 
-			rutina.sesiones.each(){  
-				it.acciones.each() { 
+			rutina.sesiones.each(){
+				it.acciones.each() {
 					lista.add(it.ejercicio.grupo)
-				} 
+				}
 			}
 			hayRestringidos = lista.intersect(gruposMuscularesRestringidos)
 		}
