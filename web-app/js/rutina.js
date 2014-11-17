@@ -1,28 +1,51 @@
 
 
 
-function getSesionLine(nro){
+function getSesionLine(sesion){
 
-  $("#sesiones").append(getAppendSesionContent(nro));
+  $("#sesiones").append(getAppendSesionContent(sesion));
 
 
 }
 
-function getAccionLine(){
+function getAccionLine(sesion, accion){
 
-  return "";
+  //$("#acciones_"+sesion).append(getAppendAccionContent(sesion,accion));
+  $("#table_sesion_"+sesion).append(getAppendAccionContent(sesion,accion));
+
+  //$("template_acciones").append(getAppendAccionContent(sesion,accion));
+
+
 }
 
 
-function getAppendSesionContent(nro){
+function getAppendAccionContent(sesion, accion){
+
+  //var doc = $("#template_acciones").html();
+  //var doc = $("#accionRow_nsesion_naccion").html();
+  var doc = $("#table_acciones_nsesion").html();
 
 
-  var doc = $("#template_sesiones").html();
+  doc = doc.replace(/nsesion/g,sesion);
+  doc = doc.replace(/naccion/g,accion);
 
 
-  doc = doc.replace(/nsesion/g,nro)
+  //doc = doc.replace(/\<\/tbody\>/g,"");
+  //doc = doc.replace(/\<\/table\>/g,"");
+  //doc = doc.replace(/\<tbody\>/g,"");
+  //doc = doc.replace(/\<table\>/g,"");
+
+
 
   return doc;
 
-  // ver como ajustar el bandoñon
+}
+
+function getAppendSesionContent(sesion){
+
+  var doc = $("#template_sesiones").html();
+
+  doc = doc.replace(/nsesion/g,sesion);
+
+  return doc;
 }
