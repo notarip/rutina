@@ -75,7 +75,7 @@
 
 								<!-- Aca se agregan las sesiones dinamicante -->
 								<h3>Sesiones</h3>
-								<div id="sesiones">
+								<div id="sesiones" style="height: inherit !important;">
 
 
 								</div>
