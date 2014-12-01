@@ -1,41 +1,58 @@
 
-
-
 function getSesionLine(sesion){
+
+  var ssesion = sesion-1;
+
+  $("#crearSesion_"+ssesion).attr('disabled','disabled');
+  //$("#sesion_"+ssesion).removeClass("active");
 
   $("#sesiones").append(getAppendSesionContent(sesion));
 
-
+  //$("#sesion_"+sesion).addClass("active");
 }
 
 function getAccionLine(sesion, accion){
 
-  //$("#acciones_"+sesion).append(getAppendAccionContent(sesion,accion));
+  var saccion = accion-1;
+
+  var data = extractAccion(sesion, saccion);
+
+  $.post( "createAccion", data)
+    .done(function( data ) {
+        alert( "Data Loaded: " + data );
+    })
+    .fail(function(data) {
+      alert( "error " + $.param(data) );
+    });
+
+  $("#crearAccion_"+sesion+"_"+saccion).attr('disabled','disabled');
   $("#table_sesion_"+sesion).append(getAppendAccionContent(sesion,accion));
 
-  //$("template_acciones").append(getAppendAccionContent(sesion,accion));
+}
 
+function extractAccion(sesion, accion){
+
+  var accionAttr = ["peso","ejercicio","repeteciones","series","descanso","tiempo","distancia","velocidad"];
+  var json = [];
+  var accion =[];
+
+  $.each(accionAttr,function(index,value){
+
+      accion[value] = $("#"+value+"_"+sesion+"_"+accion).val();
+  });
+  json.push(accion);
+
+  return json;
 
 }
 
 
 function getAppendAccionContent(sesion, accion){
 
-  //var doc = $("#template_acciones").html();
-  //var doc = $("#accionRow_nsesion_naccion").html();
   var doc = $("#table_acciones_nsesion").html();
-
 
   doc = doc.replace(/nsesion/g,sesion);
   doc = doc.replace(/naccion/g,accion);
-
-
-  //doc = doc.replace(/\<\/tbody\>/g,"");
-  //doc = doc.replace(/\<\/table\>/g,"");
-  //doc = doc.replace(/\<tbody\>/g,"");
-  //doc = doc.replace(/\<table\>/g,"");
-
-
 
   return doc;
 
