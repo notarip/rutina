@@ -75,7 +75,7 @@
   </head>
 
 <body>
-    <br>
+    
     <g:layoutBody/>
 
 </body>

@@ -32,15 +32,15 @@ function getAccionLine(sesion, accion){
 
 function extractAccion(sesion, accion){
 
-  var accionAttr = ["peso","ejercicio","repeteciones","series","descanso","tiempo","distancia","velocidad"];
-  var json = [];
-  var accion =[];
+  var accionAttr = ["peso","ejercicio","repeticiones","serie","descanso","tiempo","distancia","velocidad"];
+  var json = {};
+  var data =[];
 
   $.each(accionAttr,function(index,value){
 
-      accion[value] = $("#"+value+"_"+sesion+"_"+accion).val();
+      json[value] = $("#"+value+"_"+sesion+"_"+accion).val();
   });
-  json.push(accion);
+  //json.push(data);
 
   return json;
 

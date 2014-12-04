@@ -14,8 +14,6 @@ TODO
 		<g:set var="entityName" value="${message(code: 'rutina.label', default: 'Rutina')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
     	<meta name="layout" content="header"/>
-
-
 	</head>
 	<body>
 		<script>
@@ -24,7 +22,7 @@ TODO
 				$( "#datepicker_hasta" ).datepicker();
 				$("[id^=datepicker]").datepicker( "option", "dateFormat", "dd/mm/yy" );
 				$("[id^=datepicker]").datepicker({ minDate: -20, maxDate: "+1M +10D" });
-				$("#accordion").accordion({active: 1});
+				//$("#accordion").accordion({active: 1});
 				$( "#crearSesion" ).click(function() {
 					//postear la sesion
 					//agregar una linea de accion
@@ -35,12 +33,9 @@ TODO
 			});
 		</script>
 
-		<div id="create-rutina" class="content scaffold-create" role="main">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title"><g:message code="default.create.label" args="[entityName]" /></h3>
-				</div>
-				<div class="panel-body">
+		<div id="create-rutina" role="main">
+			<div >
+			<div class="panel-body">
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -55,25 +50,25 @@ TODO
 
 			<g:form action="save" >
 			</div>
-							<div id="accordion">
-										<h3>Rutina</h3>
+							<div id="rutina" class="panel panel-primary">
+										<div class="panel-heading"><h3 class="panel-title">Rutina</h3></div>
 									<table>
 									<tr>
 										<td>
 											<tr>
 												<th><label for="gimnasio">Gimnasio</label></th>
 												<td><g:select class="selectpicker show-tick form-control" data-live-search="true" name="gimnasio" from="${gimnasios}"  value="${rutina.gimnasio}" optionKey="nombre"/></td>
-											</tr>
-											<tr>
+
+
 												<th><label for="usuario">Usuario</label></th>
 												<td><g:select class="selectpicker show-tick form-control" data-live-search="true" name="usuario" from="${usuarios}"  value="${rutina.usuario}" optionKey="nombre"/></td>
-											</tr>
-											<tr>
+
+
 												<th><label for="desde">Desde</label></th>
 												<td><input type="text" name="desde" id="datepicker_desde"></td>
 												<!-- td><g:datePicker class="selectpicker show-tick form-control" name="desde" value="${new Date()}" precision="day"  relativeYears="[0..4]" noSelection="['':'-Choose-']"/></td -->
-											</tr>
-											<tr>
+
+
 												<th><label for="hasta">Hasta</label></th>
 												<td><input type="text" name="hasta" id="datepicker_hasta"></td>
 												<!-- td><g:datePicker class="selectpicker show-tick form-control" name="hasta" value="${new Date()}" precision="day"  relativeYears="[0..4]" noSelection="['':'-Choose-']"/></td-->
@@ -84,8 +79,9 @@ TODO
 
 
 								<!-- Aca se agregan las sesiones dinamicante -->
-								<h3>Sesiones</h3>
-								<div id="sesiones">
+
+								<div id="sesiones" class="panel panel-primary">
+									<div class="panel-heading"><h3 class="panel-title">Sesiones</h3></div>
 									<div  id="sesion_1" class="list-group-item">
 											<!-- h4>Sesion 1</h4 -->
 											<div>
@@ -119,9 +115,9 @@ TODO
 									</div>
 								</div>
 				</div>
-					<fieldset class="buttons">
+					<!-- fieldset class="buttons">
 						<g:submitButton name="create" class="btn btn-lg btn-success" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-					</fieldset>
+					</fieldset -->
 			</g:form>
 		</div>
 	</div>

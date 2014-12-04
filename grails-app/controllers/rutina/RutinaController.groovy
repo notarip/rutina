@@ -53,6 +53,12 @@ class RutinaController {
     }
 
     @Transactional
+    def saveAccion(){
+
+
+    }
+
+    @Transactional
     def save(Rutina rutinaInstance) {
         if (rutinaInstance == null) {
             notFound()
