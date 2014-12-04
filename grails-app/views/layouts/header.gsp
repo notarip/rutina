@@ -12,8 +12,8 @@
 
 
     <link href="${resource(dir: 'css/boostrap', file: 'bootstrap-select.css')}" rel="stylesheet">
-    <link href="${resource(dir: 'css/boostrap', file: 'bootstrap.min.css')}" rel="stylesheet">
-    <link href="${resource(dir: 'css/boostrap', file: 'bootstrap-theme.min.css')}" rel="stylesheet">
+    <link href="${resource(dir: 'css/boostrap', file: 'bootstrap.css')}" rel="stylesheet">
+    <link href="${resource(dir: 'css/boostrap', file: 'bootstrap-theme.css')}" rel="stylesheet">
     <link href="${resource(dir: 'css', file: 'style.css')}" rel="stylesheet">
     <link href="${resource(dir: 'css/boostrap', file: 'theme.css')}" rel="stylesheet">
     <link href="${resource(dir: 'js/jquery-ui-1.11.2.custom', file: 'jquery-ui.min.css')}" rel="stylesheet">

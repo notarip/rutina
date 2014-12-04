@@ -4,6 +4,7 @@
 TODO
 
 - Arreglar el post en rutina.js
+- Ver por que los select solo funcionan con el primero
 
 
 -->
@@ -35,7 +36,7 @@ TODO
 
 		<div id="create-rutina" role="main">
 			<div >
-			<div class="panel-body">
+			<div class="panel-body" style="padding-bottom: 0px; padding-top: 0px;">
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -96,7 +97,7 @@ TODO
 											<tr id="accionRow_1_1">
 												<div>
 												<th rowspan="2" style="vertical-align:bottom;"><label for="ejercicio">Ejercicio</label></th>
-												<td rowspan="2" style="vertical-align:bottom;"><g:select  id="ejercicio_sesion_1" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
+												<td rowspan="2" style="vertical-align:bottom;padding-bottom: 0px;"><g:select  id="ejercicio_1_1" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
 												<td><label for="peso">Peso</label><br><g:field id="peso_1_1" name="peso" type="number" step="0.1" maxlength="4" min="0" max="500" value="0"/></td>
 												<td><label for="repeteciones">Repet.</label><br><g:field id="repeticiones_1_1"name="repeticiones" type="number" maxlength="4" min="1" max="500" value="1"/></td>
 												<td><label for="series">Series</label><br><g:field id="serie_1_1" name="series" type="number" maxlength="2" min="1" max="100" value="1"/></td>
@@ -139,7 +140,7 @@ TODO
 		<tr id="accionRow_nsesion_1">
 			<div>
 			<th rowspan="2" style="vertical-align:bottom;"><label for="ejercicio">Ejercicio</label></th>
-			<td rowspan="2" style="vertical-align:bottom;"><g:select  id="ejercicio_nsesion_1" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
+			<td rowspan="2" style="vertical-align:bottom;padding-bottom: 0px;"><g:select  id="ejercicio_nsesion_1" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
 			<td><label for="peso">Peso</label><br><g:field id="peso_nsesion_1" name="peso" type="number" step="0.1" maxlength="4" min="0" max="500" value="0"/></td>
 			<td><label for="repeteciones">Repet.</label><br><g:field id="repeticiones_nsesion_1"name="repeticiones" type="number" maxlength="4" min="1" max="500" value="1"/></td>
 			<td><label for="series">Series</label><br><g:field id="serie_nsesion_1" name="series" type="number" maxlength="2" min="1" max="100" value="1"/></td>
