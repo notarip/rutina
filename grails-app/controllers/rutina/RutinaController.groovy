@@ -5,10 +5,26 @@ package rutina
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
+
+
+
+class NewAccionCommand {
+	 Integer serie
+   Float peso
+   Integer distancia
+   Integer tiempo
+   Integer descanso
+   String ejercicio
+   Integer repeticiones
+   Float velocidad
+
+	}
+
+
 @Transactional(readOnly = true)
 class RutinaController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [saveSesion: "POST",save: "POST", update: "PUT", delete: "DELETE"]
 
     UsuarioService usuarioService
 
@@ -58,27 +74,20 @@ class RutinaController {
 
     }
 
-    @Transactional
-    def save(Rutina rutinaInstance) {
-        if (rutinaInstance == null) {
-            notFound()
-            return
-        }
+    def saveSesion(NewAccionCommand cmd){
 
-        if (rutinaInstance.hasErrors()) {
-            respond rutinaInstance.errors, view:'create'
-            return
-        }
+      // TODO seguir desde aca:
+      // cambiar el nombre al metodo por saveAccion
+      // Ir guardando las acciones en la sesion
+      // ver como queda el arbol de objetos.
+      render cmd
 
-        rutinaInstance.save flush:true
+    }
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'rutina.label', default: 'Rutina'), rutinaInstance.id])
-                redirect rutinaInstance
-            }
-            '*' { respond rutinaInstance, [status: CREATED] }
-        }
+    def save(NewAccionCommand cmd) {
+
+
+      return
     }
 
     def edit(Rutina rutinaInstance) {

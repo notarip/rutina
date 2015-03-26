@@ -4,7 +4,7 @@
 TODO
 
 - Arreglar el post en rutina.js
-- Ver por que los select solo funcionan con el primero
+- Ver por que los select solo funcionan con el primero, por el momento saque el fancy select
 
 
 -->
@@ -67,12 +67,11 @@ TODO
 
 												<th><label for="desde">Desde</label></th>
 												<td><input type="text" name="desde" id="datepicker_desde"></td>
-												<!-- td><g:datePicker class="selectpicker show-tick form-control" name="desde" value="${new Date()}" precision="day"  relativeYears="[0..4]" noSelection="['':'-Choose-']"/></td -->
 
 
 												<th><label for="hasta">Hasta</label></th>
 												<td><input type="text" name="hasta" id="datepicker_hasta"></td>
-												<!-- td><g:datePicker class="selectpicker show-tick form-control" name="hasta" value="${new Date()}" precision="day"  relativeYears="[0..4]" noSelection="['':'-Choose-']"/></td-->
+
 											</tr>
 										</td>
 								</tr>
@@ -97,7 +96,8 @@ TODO
 											<tr id="accionRow_1_1">
 												<div>
 												<th rowspan="2" style="vertical-align:bottom;"><label for="ejercicio">Ejercicio</label></th>
-												<td rowspan="2" style="vertical-align:bottom;padding-bottom: 0px;"><g:select  id="ejercicio_1_1" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
+												<!-- td rowspan="2" style="vertical-align:bottom;padding-bottom: 0px;"><g:select  id="ejercicio_1_1" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td -->
+												<td rowspan="2" style="vertical-align:bottom;padding-bottom: 0px;"><g:select  id="ejercicio_1_1" class="show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
 												<td><label for="peso">Peso</label><br><g:field id="peso_1_1" name="peso" type="number" step="0.1" maxlength="4" min="0" max="500" value="0"/></td>
 												<td><label for="repeteciones">Repet.</label><br><g:field id="repeticiones_1_1"name="repeticiones" type="number" maxlength="4" min="1" max="500" value="1"/></td>
 												<td><label for="series">Series</label><br><g:field id="serie_1_1" name="series" type="number" maxlength="2" min="1" max="100" value="1"/></td>
@@ -140,7 +140,8 @@ TODO
 		<tr id="accionRow_nsesion_1">
 			<div>
 			<th rowspan="2" style="vertical-align:bottom;"><label for="ejercicio">Ejercicio</label></th>
-			<td rowspan="2" style="vertical-align:bottom;padding-bottom: 0px;"><g:select  id="ejercicio_nsesion_1" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
+			<!-- td rowspan="2" style="vertical-align:bottom;padding-bottom: 0px;"><g:select  id="ejercicio_nsesion_1" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td -->
+			<td rowspan="2" style="vertical-align:bottom;padding-bottom: 0px;"><g:select  id="ejercicio_nsesion_1" class="show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
 			<td><label for="peso">Peso</label><br><g:field id="peso_nsesion_1" name="peso" type="number" step="0.1" maxlength="4" min="0" max="500" value="0"/></td>
 			<td><label for="repeteciones">Repet.</label><br><g:field id="repeticiones_nsesion_1"name="repeticiones" type="number" maxlength="4" min="1" max="500" value="1"/></td>
 			<td><label for="series">Series</label><br><g:field id="serie_nsesion_1" name="series" type="number" maxlength="2" min="1" max="100" value="1"/></td>
@@ -166,7 +167,8 @@ TODO
 <tr id="accionRow_nsesion_naccion">
 	<div>
 	<th rowspan="2" style="vertical-align:bottom;"><label for="ejercicio">Ejercicio</label></th>
-	<td rowspan="2" style="vertical-align:bottom;"><g:select id="ejercicio_nsesion_naccion" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
+	<!-- td rowspan="2" style="vertical-align:bottom;"><g:select id="ejercicio_nsesion_naccion" class="selectpicker show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td -->
+	<td rowspan="2" style="vertical-align:bottom;"><g:select id="ejercicio_nsesion_naccion" class="show-tick form-control" data-live-search="true" name="ejercicio" from="${ejercicios}"  value="" optionKey="nombre"/></td>
 	<td><g:field id="peso_nsesion_naccion" name="peso" type="number" step="0.1" maxlength="4" min="0" max="500" value="0"/></td>
 	<td><g:field id="repeticiones_nsesion_naccion"name="repeticiones" type="number" maxlength="4" min="1" max="500" value="1"/></td>
 	<td><g:field id="serie_nsesion_naccion" name="series" type="number" maxlength="2" min="1" max="100" value="1"/></td>

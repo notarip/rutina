@@ -17,7 +17,7 @@ function getAccionLine(sesion, accion){
 
   var data = extractAccion(sesion, saccion);
 
-  $.post( "createAccion", data)
+  $.post( "saveSesion", data)
     .done(function( data ) {
         alert( "Data Loaded: " + data );
     })
